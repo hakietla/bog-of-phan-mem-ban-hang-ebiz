@@ -9,28 +9,306 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			main {
+				padding: 0 !important;
+			}
+
+			.hero-section {
+				background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+				padding: 3em 1em;
+				margin-bottom: 2em;
+			}
+
+			.hero-container {
+				max-width: 960px;
+				margin: 0 auto;
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 2em;
+				align-items: center;
+			}
+
+			.hero-content h1 {
+				font-size: 2.5em;
+				margin: 0 0 1em 0;
+				color: rgb(var(--black));
+				line-height: 1.2;
+			}
+
+			.hero-content p {
+				font-size: 1.1em;
+				color: rgb(var(--gray-dark));
+				margin-bottom: 1.5em;
+				line-height: 1.6;
+			}
+
+			.hero-image {
+				width: 100%;
+				height: auto;
+				border-radius: 12px;
+				box-shadow: 0 10px 30px rgba(var(--black), 10%);
+			}
+
+			.cta-button {
+				display: inline-block;
+				background-color: rgb(31, 41, 55);
+				color: white;
+				padding: 0.75em 1.5em;
+				border-radius: 6px;
+				text-decoration: none;
+				font-weight: 600;
+				transition: background-color 0.3s ease;
+			}
+
+			.cta-button:hover {
+				background-color: rgb(17, 24, 39);
+			}
+
+			.features-section {
+				max-width: 960px;
+				margin: 0 auto;
+				padding: 0 1em 3em 1em;
+			}
+
+			.features-section h2 {
+				text-align: center;
+				margin-bottom: 2em;
+				color: rgb(var(--black));
+			}
+
+			.features-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 2em;
+				margin-bottom: 3em;
+			}
+
+			.feature-card {
+				background: white;
+				padding: 2em;
+				border-radius: 12px;
+				box-shadow: 0 2px 8px rgba(var(--black), 5%);
+				border: 1px solid rgb(var(--gray-light));
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+			}
+
+			.feature-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 8px 16px rgba(var(--black), 10%);
+			}
+
+			.feature-card h3 {
+				color: rgb(var(--black));
+				margin-top: 0;
+			}
+
+			.feature-card p {
+				color: rgb(var(--gray));
+				line-height: 1.6;
+			}
+
+			.feature-icon {
+				font-size: 2.5em;
+				margin-bottom: 0.5em;
+			}
+
+			.benefits-section {
+				background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+				padding: 3em 1em;
+				margin-top: 2em;
+			}
+
+			.benefits-container {
+				max-width: 960px;
+				margin: 0 auto;
+			}
+
+			.benefits-section h2 {
+				text-align: center;
+				margin-bottom: 2em;
+				color: rgb(var(--black));
+			}
+
+			.benefits-list {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 1.5em;
+			}
+
+			.benefit-item {
+				background: white;
+				padding: 1.5em;
+				border-radius: 8px;
+				border-left: 4px solid rgb(31, 41, 55);
+			}
+
+			.benefit-item h4 {
+				color: rgb(var(--black));
+				margin-top: 0;
+			}
+
+			.benefit-item p {
+				color: rgb(var(--gray));
+				margin: 0;
+				font-size: 0.95em;
+			}
+
+			.cta-section {
+				max-width: 960px;
+				margin: 0 auto;
+				padding: 3em 1em;
+				text-align: center;
+			}
+
+			.cta-section h2 {
+				color: rgb(var(--black));
+				margin-bottom: 1em;
+			}
+
+			.cta-section p {
+				color: rgb(var(--gray));
+				margin-bottom: 1.5em;
+				font-size: 1.1em;
+			}
+
+			@media (max-width: 720px) {
+				.hero-container {
+					grid-template-columns: 1fr;
+					gap: 1.5em;
+				}
+
+				.hero-content h1 {
+					font-size: 1.8em;
+				}
+
+				.hero-content p {
+					font-size: 1em;
+				}
+
+				.features-grid {
+					grid-template-columns: 1fr;
+					gap: 1.5em;
+				}
+
+				.benefits-list {
+					grid-template-columns: 1fr;
+					gap: 1em;
+				}
+
+				.hero-section {
+					padding: 2em 1em;
+					margin-bottom: 1.5em;
+				}
+
+				.features-section {
+					padding: 0 1em 2em 1em;
+				}
+
+				.benefits-section {
+					padding: 2em 1em;
+					margin-top: 1.5em;
+				}
+
+				.cta-section {
+					padding: 2em 1em;
+				}
+			}
+		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>📊 Blog of Phần Mềm Bán Hàng Ebiz</h1>
-			<p>
-				Chào mừng bạn đến với blog chính thức của <strong>Ebiz</strong> - Giải pháp quản lý bán hàng toàn diện cho doanh nghiệp. Tại đây, chúng tôi chia sẻ những kiến thức, kinh nghiệm và hướng dẫn chi tiết về cách sử dụng phần mềm Ebiz để tối ưu hóa quy trình bán hàng của bạn.
-			</p>
-			<p>
-				<strong>Ebiz</strong> là một nền tảng phần mềm hiện đại, được thiết kế để giúp các doanh nghiệp quản lý bán hàng, kho hàng, khách hàng và báo cáo một cách hiệu quả. Dù bạn là chủ cửa hàng nhỏ hay doanh nghiệp lớn, Ebiz đều có những tính năng phù hợp cho nhu cầu của bạn.
-			</p>
-			<p><strong>Những bài viết trên blog này sẽ giúp bạn:</strong></p>
-			<ul>
-				<li>Hiểu rõ các tính năng chính của Ebiz</li>
-				<li>Học cách sử dụng Ebiz một cách hiệu quả</li>
-				<li>Tìm hiểu các mẹo và thủ thuật để tối ưu hóa kinh doanh</li>
-				<li>Giải quyết các vấn đề thường gặp</li>
-				<li>Cập nhật những tính năng mới nhất</li>
-			</ul>
-			<p>
-				Hãy truy cập <a href="/blog">trang Blog</a> để xem những bài viết mới nhất. Nếu bạn có bất kỳ câu hỏi nào, vui lòng liên hệ với chúng tôi qua các kênh hỗ trợ được liệt kê ở phía dưới trang.
-			</p>
+			<!-- Hero Section -->
+			<section class="hero-section">
+				<div class="hero-container">
+					<div class="hero-content">
+						<h1>📊 Phần Mềm Bán Hàng Ebiz</h1>
+						<p>
+							Giải pháp quản lý bán hàng toàn diện cho doanh nghiệp của bạn. Từ quản lý kho hàng, bán hàng, khách hàng đến báo cáo - tất cả trong một nền tảng duy nhất.
+						</p>
+						<a href="/blog" class="cta-button">Khám Phá Bài Viết →</a>
+					</div>
+					<img src="/hero-sales.jpg" alt="Sales Management Software" class="hero-image" />
+				</div>
+			</section>
+
+			<!-- Features Section -->
+			<section class="features-section">
+				<h2>Tính Năng Chính Của Ebiz</h2>
+				<div class="features-grid">
+					<div class="feature-card">
+						<div class="feature-icon">📦</div>
+						<h3>Quản Lý Kho Hàng</h3>
+						<p>Theo dõi tồn kho, nhập xuất hàng, kiểm kê kho và báo cáo chi tiết với giao diện dễ sử dụng.</p>
+					</div>
+					<div class="feature-card">
+						<div class="feature-icon">💳</div>
+						<h3>Bán Hàng Hiệu Quả</h3>
+						<p>Xử lý giao dịch bán hàng nhanh chóng, quản lý giá cả linh hoạt và theo dõi doanh số bán hàng.</p>
+					</div>
+					<div class="feature-card">
+						<div class="feature-icon">👥</div>
+						<h3>Quản Lý Khách Hàng</h3>
+						<p>Lưu trữ thông tin khách hàng, theo dõi lịch sử mua hàng và xây dựng mối quan hệ khách hàng tốt.</p>
+					</div>
+					<div class="feature-card">
+						<div class="feature-icon">📈</div>
+						<h3>Báo Cáo & Phân Tích</h3>
+						<p>Tạo báo cáo chi tiết, phân tích doanh số, lợi nhuận và đưa ra quyết định kinh doanh thông minh.</p>
+					</div>
+					<div class="feature-card">
+						<div class="feature-icon">🔧</div>
+						<h3>Dễ Sử Dụng</h3>
+						<p>Giao diện trực quan, không cần kiến thức kỹ thuật cao. Bất kỳ ai cũng có thể sử dụng ngay.</p>
+					</div>
+					<div class="feature-card">
+						<div class="feature-icon">☁️</div>
+						<h3>Truy Cập Mọi Nơi</h3>
+						<p>Dùng trên máy tính, tablet hoặc điện thoại. Dữ liệu được đồng bộ hóa tự động.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Benefits Section -->
+			<section class="benefits-section">
+				<div class="benefits-container">
+					<h2>Tại Sao Chọn Ebiz?</h2>
+					<div class="benefits-list">
+						<div class="benefit-item">
+							<h4>💰 Tiết Kiệm Chi Phí</h4>
+							<p>Giảm chi phí vận hành, tối ưu hóa quy trình và tăng hiệu suất làm việc.</p>
+						</div>
+						<div class="benefit-item">
+							<h4>⚡ Nhanh & Hiệu Quả</h4>
+							<p>Xử lý giao dịch nhanh chóng, giảm thời gian thủ công và tăng năng suất.</p>
+						</div>
+						<div class="benefit-item">
+							<h4>🎯 Chính Xác & Tin Cậy</h4>
+							<p>Dữ liệu luôn chính xác, giảm sai sót và đảm bảo tính toàn vẹn thông tin.</p>
+						</div>
+						<div class="benefit-item">
+							<h4>📱 Hỗ Trợ Tốt</h4>
+							<p>Đội ngũ hỗ trợ kỹ thuật sẵn sàng giúp đỡ bạn 24/7.</p>
+						</div>
+						<div class="benefit-item">
+							<h4>🔐 Bảo Mật Cao</h4>
+							<p>Dữ liệu được mã hóa và bảo vệ an toàn trên máy chủ đáng tin cậy.</p>
+						</div>
+						<div class="benefit-item">
+							<h4>📊 Thông Tin Chi Tiết</h4>
+							<p>Báo cáo chi tiết giúp bạn hiểu rõ tình hình kinh doanh và đưa ra quyết định tốt.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- CTA Section -->
+			<section class="cta-section">
+				<h2>Sẵn Sàng Nâng Cấp Kinh Doanh Của Bạn?</h2>
+				<p>Khám phá những kiến thức và hướng dẫn chi tiết về cách sử dụng Ebiz một cách hiệu quả.</p>
+				<a href="/blog" class="cta-button">Đọc Bài Viết Mới Nhất →</a>
+			</section>
 		</main>
 		<Footer />
 	</body>
