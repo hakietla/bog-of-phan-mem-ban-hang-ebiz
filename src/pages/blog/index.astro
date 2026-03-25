@@ -19,6 +19,24 @@ const posts = (await getCollection('blog')).sort(
 			main {
 				width: 960px;
 			}
+			
+			.blog-header {
+				margin-bottom: 2rem;
+				padding-bottom: 1rem;
+				border-bottom: 2px solid rgb(var(--gray-light));
+			}
+			
+			.blog-header h1 {
+				margin: 0 0 0.5rem 0;
+				color: rgb(var(--black));
+			}
+			
+			.blog-header p {
+				margin: 0;
+				color: rgb(var(--gray));
+				font-size: 1.1em;
+			}
+			
 			ul {
 				display: flex;
 				flex-wrap: wrap;
@@ -29,6 +47,7 @@ const posts = (await getCollection('blog')).sort(
 			}
 			ul li {
 				width: calc(50% - 1rem);
+				position: relative;
 			}
 			ul li * {
 				text-decoration: none;
@@ -68,6 +87,25 @@ const posts = (await getCollection('blog')).sort(
 			ul a:hover img {
 				box-shadow: var(--box-shadow);
 			}
+			
+			.new-badge {
+				display: inline-block;
+				background-color: #ef4444;
+				color: white;
+				padding: 0.25rem 0.75rem;
+				border-radius: 4px;
+				font-size: 0.75em;
+				font-weight: 700;
+				margin-left: 0.5rem;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+			}
+			
+			ul li:first-child .new-badge {
+				margin-left: 0;
+				margin-bottom: 0.5rem;
+			}
+			
 			@media (max-width: 720px) {
 				ul {
 					gap: 0.5em;
@@ -88,12 +126,17 @@ const posts = (await getCollection('blog')).sort(
 	<body>
 		<Header />
 		<main>
+			<div class="blog-header">
+				<h1>Bài Viết Mới Nhất</h1>
+				<p>Khám phá những kiến thức mới nhất về phần mềm bán hàng Ebiz</p>
+			</div>
 			<section>
 				<ul>
 					{
-						posts.map((post) => (
+						posts.map((post, index) => (
 							<li>
 								<a href={`/blog/${post.id}/`}>
+									{index === 0 && <span class="new-badge">Mới</span>}
 									<img width={720} height={360} src={post.data.heroImage} alt="" />
 									<h4 class="title">{post.data.title}</h4>
 									<p class="date">
